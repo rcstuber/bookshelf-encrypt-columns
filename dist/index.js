@@ -46,7 +46,7 @@ exports['default'] = function (Bookshelf, options) {
           _.forEach(_this.encryptedColumns, function (column) {
             if (_this.attributes[column]) {
               var encrypted = CryptoUtil.encrypt(cipherOptions.cipher, cipherOptions.key, _this.attributes[column]);
-              if (_.get(options, 'patch') == true) {
+              if (_.get(options, 'patch')) {
                 attrs[column] = encrypted;
               } else {
                 _this.attributes[column] = encrypted;
