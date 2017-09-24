@@ -39,7 +39,7 @@ export default (Bookshelf, options) => {
           _.forEach(this.encryptedColumns, (column) => {
             if (this.attributes[column]) {
               const encrypted = CryptoUtil.encrypt(cipherOptions.cipher, cipherOptions.key, this.attributes[column]);
-              if (_.get(options, 'patch') == true) {
+              if (_.get(options, 'patch')) {
                 attrs[column] = encrypted;
               } else {
                 this.attributes[column] = encrypted;
